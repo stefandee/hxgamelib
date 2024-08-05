@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="AllStrings">
+	<string id="kStringID_Yes"			value="Da" />
+	<string id="kStringID_No"			value="Nu"  />
+	<string id="kStringID_AskSound"			value="Activati sunetul?" />
+	<string id="kStringID_Resume"			value="Continua" />
+	<string id="kStringID_MainMenu"			value="Meniu Principal" />
+	<string id="kStringID_AskDataOverwrite"		value="Porneşte un nou joc şi şterge datele anterioare?"/>
+</package>
+

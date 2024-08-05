@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<package name="AllStrings">
+	<string id="kStringID_Yes"			value="Yes" />
+	<string id="kStringID_No"			value="No"  />
+	<string id="kStringID_AskSound"			value="Enable Sound?" />
+	<string id="kStringID_Resume"			value="RESUME" />
+	<string id="kStringID_MainMenu"			value="MAIN MENU" />
+	<string id="kStringID_AskDataOverwrite"		value="Start a new game and erase previously saved game?"/>
+</package>
+

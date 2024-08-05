@@ -1,0 +1,3 @@
+[submodule "gametoolkit"]
+	path = gametoolkit
+	url = https://github.com/stefandee/gametoolkit.git

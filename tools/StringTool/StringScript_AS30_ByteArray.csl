@@ -1,0 +1,50 @@
+main()
+{
+  var i, j;
+
+  var packageCount = GetPackageCount();
+
+  var filePackHx = FileOpen(GetOutputDir()|"StringPackages.hx", O_BINARY + O_CREAT + O_RDWR, S_IREAD + S_IWRITE);
+
+  FileWrite(filePackHx, "/* Generated file - StringTool "|fileVersion|" */" | "\n" | "package data;\n\n"|"class StringPackages\n{\n");
+
+  for(i = 0; i < packageCount; i++)
+  {
+    var packageName = GetPackageName(i);
+    var stringCount = GetPackageStringCount(i);
+
+    FileWrite(filePackHx, "\tpublic static var "|packageName|" : Int = "|i|";\n");
+    
+    var fileBIN = FileOpen(GetOutputDir()|packageName|".bin", O_BINARY + O_CREAT + O_RDWR, S_IREAD + S_IWRITE);
+    var fileHx  = FileOpen(GetOutputDir()|packageName|".hx", O_BINARY + O_CREAT + O_RDWR, S_IREAD + S_IWRITE);
+
+    FileWrite(fileHx, "/* Generated file - StringTool "|fileVersion|" */" | "\n" | "package data;\n\n" | "class " | packageName | "\n{\n");
+
+    // write the string count in the binary file
+    FileWriteParam(fileBIN, stringCount, FILELIB_PARAM_INT);
+
+    for(j = 0; j < stringCount; j++)
+    {
+      // write the id in haxe static member format
+      FileWrite(fileHx, "\tpublic static var "|GetPackageStringId(i, j)|" : Int = "|j|";\n");
+
+      // write the string size in the bin file before the actual string, as an integer
+      FileWriteParam(fileBIN, strLength(GetPackageStringValue(i, j)), FILELIB_PARAM_INT);
+      
+      // write string in the bin file
+      FileWrite(fileBIN, GetPackageStringValue(i, j));
+    }
+
+    // finalize this string package def file
+    FileWrite(fileHx, "\tpublic static var StringCount : Int = "|stringCount|";\n");
+    FileWrite(fileHx, "}\n");
+    FileClose(fileHx);
+
+    FileClose(fileBIN);
+  }
+
+  // finalize the packages def file
+  FileWrite(filePackHx, "\tpublic static var PackageCount : Int = "|packageCount|";\n");
+  FileWrite(filePackHx, "}\n");
+  FileClose(filePackHx);
+}

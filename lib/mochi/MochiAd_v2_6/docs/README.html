@@ -1,0 +1,410 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>MochiAd Documentation</title>
+</head>
+
+<body>
+
+				<h1>MochiAds API Documentation</h1>
+				
+				<p><b>Note:</b> The latest documentation is also available online at: <a href="https://www.mochiads.com/dev/docs#MochiAds">
+				   https://www.mochiads.com/dev/docs#MochiAds</a></p>
+	
+   	             <p>This is a simple step-by-step guide to getting MochiAds working with your Flash
+	                game. Click the links below to skip to any part of this document.
+	                The first two sections describe all that is required to get your ads running.</p>
+                
+	                <ol>
+	                    <li><a href="#Prerequisites:" title="Prerequisites">Prerequisites</a></li>
+	                    <li><a href="#The_MochiAds_Codes:" title="The MochiAds Codes">The MochiAds Codes</a>
+	                    <ul>
+	                        <li><a href="#Include_File_Installation:" id="k74u" title="Include File Installation">Include File Installation</a></li>
+	                        <li><a href="#Adding_the_In-game_Code:" id="tnh7" title="Adding the In-game Code">Adding the In-game Code</a></li>
+	                    </ul></li>
+	                    <li><a href="#Customizing_Your_Ad" id="b_9h" title="Customizing Your Ad">Customizing Your Ad</a></li>
+	                    <li><a href="#Changing_Ad_Behaviors" id="f_9y" title="Changing Ad Behaviors">Changing Ad Behaviors</a></li>
+	                    <li><a href="#MTASC_and_MXMLC" id="yrk5" title="MTASC and MXMLC">MTASC and MXMLC</a></li>
+	                    <li><a href="#Flex" title="Flex">Flex</a></li>
+	                    <li><a href="#More_Resources" id="xvax" title="More Resources">More Resources</a></li>
+	                </ol>
+					<!-- mochiads api local docs start -->          	
+					<div class="section_2">
+						<h2><a name="Prerequisites:"></a>1.1 Prerequisites:</h2>
+
+		                <p>Before you get started, make sure you have done the following:</p>
+
+		                <ol>
+		                    <li> Sign up for a MochiAds account on www.mochiads.com</li>
+		                    <li> Log in and add a new game to your account.</li>
+		                    <li> Download the MochiAds include file ZIP package.</li>
+		                    <li> Choose your code options and copy the MochiAds in-game code.</li>
+		                </ol>						
+					</div>
+					
+					<div class="section_2">	                
+		                <h2> <a name="The_MochiAds_Codes:"></a>1.2 The MochiAds Codes:</h2>
+               
+		                <div class="figure" style="width: 240px;">
+		                	<img src="img/mochiads_zip_folders.jpg" width="216" height="217" />
+		                     <p><strong>Figure a:</strong> The MochiAds ZIP package folder structure.</p>
+		                     <div class="spacer"></div>
+		                </div>
+               
+		                <p>You need two things for MochiAds to work properly in your game -- The MochiAds <em>include file</em>, and the <em>in-game code</em>.</p>
+               								
+		                <p>The <em>include file</em> contains the ActionScript code that your game will
+		                reference to display your ad. You will never need to edit this code.
+		                You just need to make sure that it is in the proper location so that it is
+		                imported or included when you publish or compile your game. You only need
+		                to do this once for each game, no matter how many ads you show in the game.</p>
+               			
+		                <p>The <em>in-game code</em> is the code you paste into your game to display the ad
+		                at a specific point in the game. This may be placed in a specific frame on
+		                the main timeline of your movie, or called when a specific event is called in
+		                your game code. Depending on how you authored or programmed your game,
+		                where you place this code will differ. Just remember, when you make the
+		                call to MochiAds, that's when the ad will show.</p>     
+                             
+		                <h3><a name="Include_File_Installation:"></a>Include File Installation:</h3>
+    
+		              	<div class="figure" style="width: 240px;">
+		                	<img src="img/mochiads_source_as2.jpg" width="216" height="215" />
+		                    <p><strong>Figure b:</strong> Typical MochiAds source files.</p>
+		                    <div class="spacer"></div>
+		                </div>
+                          
+		                <p>The MochiAds ZIP package contains the include code necessary for your
+		                game. UnZIP the package to a location on your hard drive. If you browse to
+		                that location, you will see a group of folders <cite>(fig.a)</cite>.</p>
+                              
+		                <p>Make sure to read the README.TXT file for information regarding the latest
+		                release of the Mochiads file include.</p>
+                       
+		                <p>Each folder in the package corresponds to a particular coding environment.
+		                It's up to you to choose which one is best for you:</p>
+               
+		                <ul>
+		                    <li><strong>as1</strong>: FLA published in ActionScript 1.0.</li>
+		                    <li><strong>as2</strong>: FLA published in ActionScript 2.0.</li>
+		                    <li><strong>as3</strong>: FLA published in ActionScript 3.0.</li>
+		                    <li><strong>mtasc</strong>: AS files written in ActionScript 2.0, compiled with MTASC (no FLA).</li>
+		                    <li><strong>mxmlc</strong>: AS files written in ActionScript 3.0, compiled with Flex Builder/mxmlc.</li>
+							<li><strong>flex</strong>: AS files written in ActionScript 3.0, compiled with Flex Builder/mxmlc.</li>
+		                </ul>
+ 
+		                <div class="figure" style="width: 320px;">
+		               		<img onclick="this.src = this.src;" src="img/copy_include.gif" width="320" height="240" />
+		                    <p><strong>Figure c:</strong> Copying the MochiAd.as class file.<br />(Click image to restart animation)</p>
+		                    <div class="spacer"></div>
+		                </div>
+                                                  
+		                <p>Once you have chosen a folder, open that folder and you will see the MochiAds.as
+		                file and an example that demostrates how to use it <cite>(fig.b)</cite>. The only file you will
+		                need to copy is the <code>MochiAd.as</code> file. All of the
+		                other files are in support of the example.</p>    
+               
+		                <p>Simply copy the <code>MochiAd.as</code> file and paste it into the
+		                location where you are publishing your game. You do not need to create a
+		                special folder for the include <cite>(fig.c)</cite>.</p>
+                        
+		                <h3><a name="Adding_the_In-game_Code:"></a>Adding the In-game Code: </h3>
+               
+		                <p>The <em>in-game code</em> is a one-line code snippet that you copy from the
+		                MochiAds web site. This code is a method call that tells <code>MochiAd.as</code> to launch your ad. You will paste
+		                this code into your game in the place where you want the ad to appear.
+		                Your code looks something like this:</p>
+               
+		                <p class="codetext">MochiAd.showPreGameAd({id:&quot;xxxxxxxxxxxxxxxx&quot;, 
+		                res:&quot;360x240&quot;});</p>
+               
+		                <p>There are three types of ads you can place in your game -- a <em>pre-game ad</em>, 
+						an <em>inter-level ad</em> and a <em>Click Away ad</em>. Pre-game ads include a preloader bar that
+		                grows as your game file is loaded from the web to the player's computer.
+		                An inter-level ad is an ad that appears at some point during game-play.
+		                The most convenient and unobtrusive time to show ads is usually between game
+		                levels, hence the name inter-level ad.  Click-away ads are 300x250 ads that can be 
+						placed anywhere you specify and will only disappear on a user-initiated action.</p>
+               
+		                <p>You can use the MochiAds web site to customize your code for the particular type
+		                of ad and version of ActionScript you need.</p>
+               
+		                <p><span style="color: #cc0000">ACTIONSCRIPT 3 NOTE:</span> ActionScript 3 developers
+		                will also notice that there is an additional parameter named <em>clip</em> which
+		                passes a reference to the DisplayObject container for your ad to appear.
+		                This is required, and by default this is set to root for pre-game and inter-level ads. 
+						See below for more info regarding customizing this parameter.</p>
+               
+		                <h3><a name="Pregame_Code:"></a>Pre-game Ad:</h3>                
+		                <div class="figure">
+		                	<img onclick="this.src = this.src;" src="img/paste_pregame_code.gif" width="480" height="320" />
+		                    <p><strong>Figure d:</strong> Pasting the pre-game code into a game FLA.<br />(Click image to restart animation)</p>
+		                    <div class="spacer"></div>
+		                </div>
+               
+		                <p>To add a <em>pre-game ad </em>with a preloader to your game, simply get the
+		                appropriate in-game code from the MochiAds web site, and paste it into the main
+		                timeline of your movie, in the place you've designated for a preloader <cite>(fig.d)</cite>.</p> 
+                
+		                <p>If your game is ready, you can test your movie, and you should see the pre-game
+		                ad appear as your movie loads. You may test your ads as much as you like
+		                while you develop your game. Keep in mind that your ads will not earn
+		                money until you complete your game profile which includes a URL to the completed
+		                game. You may also upload your SWF file to MochiAds.com for hosting.</p>
+               
+		                <h3><a name="Interlevel_Code:"></a>Inter-level Ad</h3>						
+		                <div class="figure">
+		                	<img onclick="this.src = this.src;" src="img/paste_pregame_code.gif" width="480" height="320" />
+		                    <p><strong>Figure e:</strong> Pasting the pre-game code into a game FLA.<br />(Click image to restart animation)</p>
+		                    <div class="spacer"></div>
+		                </div>
+	     			
+						<p>To add an <em>inter-level ad</em> to your game, simply get the appropriate code
+		                from the MochiAds web site, and paste it into the main timeline of your movie,
+		                in the place you've designated for your inter-level screen <cite>(fig.e)</cite>.</p>                
+                            
+		                <p>Just like the pre-game ad, you can test your game and see the inter-level ads in action.</p>
+		
+		
+						<h3><a name="Clickaway_Code:"></a>Click Away ad</h3>
+						
+						<p>To add a <em>Click Away ad</em> to your game, simply get the appropriate code
+		                from the MochiAds web site.  Pass in the DisplayObject container / MovieClip which
+						will contain the Click Away ad in the <em>clip</em> parameter.  The upper left corner
+						of the 300x250 Click Away ad will be placed at the upper left corner of the DisplayObject
+						container / MovieClip you specify.  When you wish to stop displaying the Click Away ad 
+						pass your <em>clip</em> to MochiAd.unload().</p>
+						
+		                <h3> Flash Player Security Settings: </h3>                
+		                <p>If you are testing locally outside of the Flash authoring environment and want
+		                to be able to see ads, you will need to change the default local playback
+		                security settings. In Flash, go to &quot;File -&gt; Publish Settings,&quot; then click on
+		                the &quot;Flash&quot; tab. At the bottom, under &quot;Local Playback Security&quot;, choose &quot;Access
+		                network only&quot; and then publish again. Keep in mind that if you are loading any
+		                local data that it will no longer be accessible until you change your settings
+		                back to &quot;Access local files only.&quot; These settings will not affect playback on
+		                the web.</p>
+ 
+		                <p>Alternatively, you may wish to add the location of your development files to
+		                your global security settings in the <a href="http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04a.html" title="Adobe Flash Player Settings Manager">Adobe
+		                Flash Player Settings Manager</a>. This way, you can give all SWF files in this
+		                location local-trusted access, allowing access to both local and remote data.</p>
+               
+		                <p>You will not need to do this if you are only testing your games in the Flash
+		                authoring environment, although you will see Sandbox Violation warnings in the
+		                Output panel. Warnings pertaining to MochiAds can be safely ignored.</p>
+               
+		                <h3>Alternate In-game Code Placement </h3>                
+		                <p>Since there are many different ways to architect Flash games, it is very likely
+		                that your game development setup is not the same as what you see above.
+		                You may have nested MovieClips, or perhaps you are not using the timeline at
+		                all. It is possible to place your in-game code in the timeline of a
+		                MovieClip as well, and it will execute when the frame where you placed the code
+		                is reached.</p>                		               
+               
+		                <h3>And You're Done!</h3>             
+		                <p>That's all that is required to get MochiAds running in your game. When
+		                you've completed your game and released it to the world, be sure to complete
+		                your profile so that your game can be approved and you can start earning money
+		                right away!</p>                         				
+                	</div>
+
+					<div class="section_2">
+						<h2><a name="Customizing_Your_Ad"></a>1.3 Customizing Your Ad</h2>       
+
+		                <p>It is possible to customize many of the visual elements and behaviors of your
+		                MochiAds. The MochiAds in-game code has a simple API that allows you to tailor
+		                the display to suit your needs. Here's some of the things you can tweak:</p>
+
+		                <ul>
+		                    <li><strong>MovieClip container:</strong> You can place your ad into any MovieClip on the stage, or into MovieClips you create with Actionscript.</li>
+		                    <li><strong>Timing:</strong> You can customize fade time of your ads.</li>
+		                    <li><strong>Colors:</strong> Change the colors of the ad preloader bar, background and outline.  You can also turn off the solid background.</li>
+		                    <li><strong>Event Handlers:</strong> You can assign custom functions to be called when ads start, load, and end.</li>
+		                </ul>
+
+		                <h3> The MochiAds API </h3>
+		                <p>Your ads can be customized by sending special parameters via your in-game code.
+		                Depending on whether you've chosen to display a pre-game or inter-level ad, your
+		                options will be slightly different.</p>
+
+		                <p>The in-game code is passed an object with keys and values to pass to the server.
+		                The default code contains two keys -- id, the unique MochiAd identifier, and
+		                res, the height x width of your game. These parameters are required.</p> 
+
+		                <p class="codetext">MochiAd.showPreGameAd({id:&quot;xxxxxxxxxxxxxxxx&quot;,
+		                res:&quot;360x240&quot;});</p>
+
+		                <p>You may add more key: value pairs to the object by separating them with commas.
+		                You may add the following optional parameters to your object:</p>
+
+		                <ul>
+		                    <li><strong>clip</strong><span class="vartype">:MovieClip</span> - a MovieClip reference in which to place the ad. Required for click-away ads or if you're using Actionscript 3.0. Otherwise the default is _root. <span class="default">(default: _root)</span></li>
+		                    <li><strong>no_bg</strong><span class="vartype">:Boolean</span> - setting to <em>true</em> allows you to disable the background entirely. <span class="default">(default: false)</span></li>
+						</ul>
+
+		                <p>The following additional options apply to pre-game ads only:</p>
+
+		                <ul>
+		                    <li><strong>color</strong><span class="vartype">:Number</span> - the color of the preloader bar as a number. <span class="default">(default: 0xFF8A00)</span></li>
+		                    <li><strong>background</strong><span class="vartype">:Number</span> - the inside color of the preloader bar as a number. <span class="default">(default: 0xFFFFC9)</span></li>
+		                    <li><strong>outline</strong><span class="vartype">:Number</span> - the outline color of the preloader bar as a number. <span class="default">(default: 0xD58B3C)</span></li>
+							<li><strong>no_progress_bar</strong><span class="vartype">:Boolean</span> - setting to <em>true</em> allows you to disable the preload progress bar. <span class="default">(default: false)</span></li>
+		                </ul>
+
+		                <p>You can find out the width and height of your ad when it loads. You can
+		                use this information to create a custom frame around your ad that matches your
+		                game.</p>
+		
+		 				<ul>
+							<li><strong>ad_loaded</strong><span class="vartype">:Function</span> - ad_loaded is called just before an ad is displayed with the width and height of the ad. 	
+								<span class="default">(default: function(width:Number, height:Number):Void { }).</span></li>																																																																																																																																																																																																																																															   
+						</ul>
+
+		                <p>You can also find out the progress of the preloader bar. You can
+		                use this information to create your own preloader bar when used with the no_progress_bar option.</p>
+		
+		 				<ul>
+							<li><strong>ad_progress</strong><span class="vartype">:Function</span> - ad_progress is called with the progress of the preloader bar.  The progress is a percent (represented from 0 to 100).
+								<span class="default">(default: function(percent:Number):Void { }).</span></li>																																																																																																																																																																																																																																															   
+						</ul>
+
+		
+		                <p>Here is an example of how the code might look if you were to add more options:</p>
+
+		                <p class="codetext">MochiAd.showPreGameAd({id:&quot;xxxxxxxxxxxxxxxx&quot;, res:&quot;360x240&quot;, clip: _root.myClip, no_bg: true, color: 0x006699, outline: 0xFFFFFF});</p>
+
+		                <p>If you need to add many options, or define functions to handle ad events, you
+		                may consider creating an object first, and then referencing that object when you
+		                call MochiAds.</p>
+
+<blockquote class="code"><pre>var myOptions:Object = {
+    id: &quot;xxxxxxxxxxxxxxxx&quot;,
+    res: &quot;360x240&quot;,
+    clip: _root.myClip,
+    color: 0x006699,
+    background: 0x333333,
+    outline: 0xFFFFFF,
+    ad_loaded: function (width, height) { trace("ad loaded: " + width + "x" + height); }
+    ad_progress: function (percent) { trace("preloader percent: " + percent); }
+}
+MochiAd.showPreGameAd({myOptions});</pre></blockquote>
+
+		                <p>There is also a tool on the MochiAds web site to customize the appearance of
+		                your ad when you set up your in-game code. Often, this is easier than
+		                editing the code by hand.</p>
+					</div>
+	         		
+	                <div class="section_2">
+                		<h2><a id="erfi" name="Changing_Ad_Behaviors"></a>1.4 Changing Ad Behaviors</h2>
+
+		                <p>The MochiAds API described above also allows you to assign your own event
+		                handlers to be called by your ad. There are six events:</p>
+
+		                <ul>
+		                    <li><strong>ad_started</strong><span class="vartype">:Function</span> - a function to call when the ad has started playing. <span class="default">(default: function ():Void { this.clip.stop() })</span></li>
+                            <li><strong>ad_loaded</strong><span class="vartype">:Function</span> - a function to call just before an ad is displayed with the width and height of the ad. If it is called, it is called after ad_started. 																																																																																																																																																																																																																																												<span class="default">(default: function(width:Number, height:Number):Void { }).</span></li>
+		                    <li><strong>ad_finished</strong><span class="vartype">:Function</span> - a function to call when the ad has finished playing. <span class="default">(default: function ():Void { this.clip.play() })</span></li>
+							<li><strong>ad_failed</strong><span class="vartype">:Function</span> - a function to call if an ad can not be displayed, this is usually due to the user having ad blocking software installed or issues with retrieving the ad over the network. If it is called, then it is called before ad_finished. <span class="default">(default: function ():Void { })</span></li> 
+							<li><strong>ad_skipped</strong><span class="vartype">:Function</span> - a function to call if the ad was skipped, this is usually due to frequency capping, or developer initiated domain filtering.  If it is called, then it is called before ad_finished. <span class="default">(default: function ():Void { })</span></li> 
+		                	<li><strong>ad_progress</strong><span class="vartype">:Function</span> - a function to call when the progress of the preloader bar has changed.  The progress is a percent (represented from 0 to 100). <span class="default">(default: function(percent:Number):Void { }).</span></li>
+						</ul>
+
+		                <p>When you assign custom functions to ad_started and ad_finished in your options object, your ad
+		                will no longer stop and play the timeline. Instead, your custom functions will be called.</p>
+
+<blockquote class="code"><pre>var myOptions:Object = {
+    id: &quot;xxxxxxxxxxxxxxxx&quot;,
+    res: &quot;360x240&quot;,
+    clip: _root.myClip,
+    ad_started: function ():Void { _global.game.pause(); },
+    ad_finished: function ():Void { _global.game.resume(); }
+}
+MochiAd.showPreGameAd({myOptions});</pre></blockquote>
+
+		                <p>It is best to explicitly pass a function literal in your options object instead
+		                of referencing a function in a separate class. That way, you do not need
+		                to worry about losing scope or relying on the Delegate class. If you are
+		                using ActionScript 3, though, you can pass a reference to your function without
+		                losing scope.</p>
+
+		                <p>Keep in mind that, if you define custom ad_started or ad_finished event handlers, 
+						your timeline will no longer be stopped during the playback of your ad. So, if you still wish to
+		                stop your timeline, you will need to be sure your event handler does this.</p>
+					</div>
+						
+					<div class="section_2">
+	                	<h2><a id="bw4o" name="MTASC_and_MXMLC"></a>1.5 MTASC and MXMLC</h2>
+
+		                <p>For those developers who are developing in environments that don't use the Flash
+		                IDE, the process for adding MochiAds will be slightly different. In order
+		                to get your ads functioning in your game, you will need to:</p>
+
+		                <ol>
+		                    <li> Make sure that you use MochiAd.as from the corresponding <i>mtasc</i> or <i>mxmlc</i> folder from the MochiAds ZIP package.</li>
+		                    <li> Make sure that <code>MochiAd.as</code> is in your root project classpath.</li>
+		                    <li> You've added the in-game code in a method that is executed in an instantiated class in your game. </li>
+		                </ol>
+					</div>
+						
+					<div class="section_2">
+	                	<h2><a id="flex" name="Flex"></a>1.6 Adobe Flex</h2>
+
+		                <p>To use MochiAds as an Adobe Flex application's preloader, you will need to:</p>
+
+		                <ol>
+		                    <li> Make sure that you use <code>MochiAd.as</code> and <code>MochiPreloader.as</code> from the <i>flex</i> folder from the MochiAds ZIP package.</li>
+		                    <li> Make sure that <code>MochiAd.as</code> and <code>MochiPreloader.as</code> are in your project classpath.</li>
+		                    <li> Tell your MXML application the preloader you want to use:
+								 <blockquote class="code"><pre>
+&lt;mx:Application xmlns:mx=&quot;http://www.adobe.com/2006/mxml&quot; preloader=&quot;MochiPreloader&quot;&gt;
+&lt;/mx:Application&gt;
+								 </pre></blockquote>
+			 				</li>
+							<li> NOTE: With inter-level ads, MochiAds is unable to tell your game when it has finished via the <code>MovieClip.stop()</code> and <code>MovieClip.start()</code> methods. You must use the <code>ad_started</code> and <code>ad_finished</code> callback methods in your game's options object (described in <a href="#Changing_Ad_Behaviors">Section 1.4</a>) to be notified when to start and stop your game.</li>
+		                </ol>
+					</div>	
+						
+					<div class="section_2">
+	                	<h2><a id="jwyl" name="AS3_Preloader"></a>1.7 ActionScript 3.0 Preloader</h2>
+
+                                            <p>The <em>mxmlc</em> folder includes a preloader class (Preloader.as) that provides an example of how to properly compile a preloader into an AS3 SWF compiled with Adobe Flex mxmlc compiler.  For the preloader to function correctly, it must load first and execute before your base class and other SWF assets load.  In order for this to happen, the Preloader class is included on the first frame of your SWF and all of the other assets are included on the next frame.  The Preloader class contains a weak reference to your document class that it uses to instantiate your class after it completely loads your game.</p>
+
+<blockquote class="code"><pre>// Change this class name to your main class
+public static var MAIN_CLASS:String = "Test";
+</pre></blockquote>
+
+                                            <p>For the Flex Builder, there is a makefile included in the example
+                                            which tells the mxmlc compiler to include your Document Class in the
+                                            second "frame" of your SWF so that the preloader will load first:</p>
+
+<blockquote class="code"><pre>mxmlc \
+               -default-frame-rate 31 \
+               -default-size 550 400 \
+               -use-network \
+               -optimize=true \
+               -output $@ \
+               -frame=Test,Test \
+               Preloader.as
+</pre></blockquote>
+
+                                            <p><em>Notice the compiler option '-frame=Test,Test'.</em></p>
+                                            
+                                            <p>If you are using FlashDevelop, you need to make sure you're passing "-frame Test, Test" to the mxmlc compiler,
+                                            which you can set under <em>Compiler Options</em> in <em>Project Properties</em>. Don't forget to change 'Test'
+                                            to the actual name of your base class.</p>
+
+					</div>
+                                    
+					<div class="section_2">
+	                	<h2><a id="jwyl" name="More_Resources"></a>1.8 More Resources</h2>
+
+		                <p>If you have questions about using MochiAds, you can view our <a href="/support/dev_faq/" >FAQs</a> or visit the <a href="/community/">support forums</a>
+		                for help. Also, if you have suggestions regarding this help document, we
+		                encourage your feedback.</p>
+					</div>
+	                	
+				</div><!-- mochiads -->
+ </body>
+</html>

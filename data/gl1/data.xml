@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<movie width="480" height="480" framerate="25" version="9">
+<background color="#ffffff"/>
+	<frame>			
+		<library>
+			<!-- apparently, a library isnt valid unless it contains a clip? -->
+			<clip id="HaxeLogo" import="sprites\haxelogo.png"/>
+
+			<binary id="LangData_EN" import="strings\EN\AllStrings.bin"/>
+			<binary id="LangData_RO" import="strings\RO\AllStrings.bin"/>
+			<binary id="SpriteData_Spee" import="sprites\spee.binsprite"/>
+		</library>		
+		<stop/>
+	</frame>	
+ </movie>
