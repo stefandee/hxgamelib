@@ -77,12 +77,9 @@ class Sprintf
 		{
 			byte = format.charAt( i );
 
-      //trace(byte);
-			
 			if ( byte == '%' )
 			{
 				byte = format.charAt( ++i );
-        //trace(byte);
 				
 				if ( byte == '%' )
 				{
@@ -117,7 +114,6 @@ class Sprintf
 						else if ( byte == '0' ) flagPadZero		= true;
 
 						byte = format.charAt( ++i );
-            //trace(byte);
 					}
 					
 					//-- width
@@ -128,7 +124,6 @@ class Sprintf
 					{
 						widthFromArgument = true;
 						byte = format.charAt( ++i );
-            //trace(byte);
 					}
 					else
 					{
@@ -142,7 +137,6 @@ class Sprintf
 						{
 							widthString += byte;
 							byte = format.charAt( ++i );
-              //trace(byte);
 						}
 					}
 					
@@ -153,13 +147,11 @@ class Sprintf
 					if ( byte == '.' )
 					{
 						byte = format.charAt( ++i );
-            //trace(byte);
 						
 						if ( byte == '*' )
 						{
 							precisionFromArgument = true;
 							byte = format.charAt( ++i );
-              //trace(byte);
 						}
 						else
 						{
@@ -173,7 +165,6 @@ class Sprintf
 							{
 								precisionString += byte;
 								byte = format.charAt( ++i );
-                //trace(byte);
 							}
 						}
 					}
@@ -194,7 +185,6 @@ class Sprintf
 						else if ( byte == 'L' ) lenL = true;
 						
 						byte = format.charAt( ++i );
-            //trace(byte);
 					}
 					
 					//-- specifier
@@ -217,8 +207,6 @@ class Sprintf
 						width = cast( list.shift(), Int );
 					}
 
-          //trace("Format: " + byte);
-							
 					switch ( byte )
 					{
 						case "c":
@@ -233,7 +221,6 @@ class Sprintf
 							
 						case "d", "i", "o":
             {
-							//trace("integer/octal format");
 
               var intValue: Int = cast( list.shift(), Int );
 
@@ -458,11 +445,9 @@ class Sprintf
 						case "s":
             {
               var tmp = list.shift();
-              //trace(tmp);
 
 							value = cast(tmp , String );
 
-              //trace(value);
 							
 							if ( precision != 0 )
 							{

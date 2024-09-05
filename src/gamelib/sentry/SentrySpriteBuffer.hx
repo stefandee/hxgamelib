@@ -71,12 +71,9 @@ class SentrySpriteBuffer
 
   private function SetCurrentAFrame(aFrameIndex : Int) : Int
   {
-    //trace("SetCurrentAFrame: " + aFrameIndex);
-
     // TODO: alias the template.anims[CurrentAnim] here or in setter for anim
     if (aFrameIndex < 0 || aFrameIndex >= template.anims[CurrentAnim].aFrames.length)
     {
-      //trace("invalid aframe!");
       return CurrentAFrame;
     }
 
@@ -142,8 +139,6 @@ class SentrySpriteBuffer
 
   public function setPause(v : Bool) : Bool
   {
-    //trace("SentrySprite::pause - not implemented!");
-
     pause = v;
 
     // TODO: set a timeStampPause, so that we keep the timing difference
@@ -275,7 +270,6 @@ class SentrySpriteBuffer
     // TODO: cache this matrix or elimiate it directly?
     var aFrameMatrix : flash.geom.Matrix = aframeTmpl.cachedMatrix;//aframeTmpl.GetMatrix();
 
-    //trace("SentryAFrame::Init");
     var tempFrames = template.frames[aframeTmpl.frameIndex];
 
     if (tempFrames == null)
@@ -293,8 +287,6 @@ class SentrySpriteBuffer
       var fModuleMatrix : flash.geom.Matrix = fModule.cachedMatrix;//fModule.GetMatrix();
 
       var moduleTmpl = template.modules[fModule.moduleIndex];
-
-      //trace("module index: " + fModule.moduleIndex);
 
       // prepare the matrix
       moduleMatrix.identity();

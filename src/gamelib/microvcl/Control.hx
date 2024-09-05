@@ -78,12 +78,10 @@ class Control extends flash.display.Sprite
 
     if (displayTactics != null)
     {
-      //trace("control::ctor - dt start");
       this.displayTactics = displayTactics;
       displayTactics.target = this;
       displayTactics.init();
       displayTactics.update();
-      //trace("control::ctor - dt end");
     }
   }
 
@@ -307,13 +305,10 @@ class Control extends flash.display.Sprite
 
   private function onEnterFrame(e : flash.events.Event)
   {
-    //trace("onenterframe: " + controlName);
   }
 
   private function onClick(e : flash.events.Event)
   {
-    //trace("onClick " + controlName);
-    
     if (onClickEvent != null && enabled)
     {
       onClickEvent(e);

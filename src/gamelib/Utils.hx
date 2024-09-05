@@ -102,13 +102,10 @@ class Utils
         ExternalInterface.available && 
         ((browserAgent.indexOf("Firefox") >= 0) || (browserAgent.indexOf("MSIE") >= 0))) 
     {
-      trace("window.open");
       ExternalInterface.call("window.open", url);
     } 
     else 
     {  
-      trace("navigatetourl");
-
       flash.Lib.getURL(new URLRequest(url), "_blank");
     }
   }
@@ -200,8 +197,6 @@ class Utils
     if (r.match(host))
     {
       var strLeft = r.matchedLeft();
-
-      trace(strLeft);
 
       if (strLeft == "" || StringTools.endsWith(strLeft, "."))
       {

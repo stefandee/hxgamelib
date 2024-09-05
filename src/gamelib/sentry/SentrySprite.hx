@@ -19,8 +19,6 @@ class SentryModule extends flash.display.Bitmap
     this.moduleTemplate = moduleTemplate;
 
     this.bitmapData = moduleTemplate.bitmapData;
-
-    //trace("SentryModule::new");
   }
 }
 
@@ -37,8 +35,6 @@ class SentryAFrame extends flash.display.Sprite
 
   public function Init(template : SentrySpriteTemplate, templateAFrame : SentryAFrameTemplate)
   {
-    //trace("SentryAFrame::init");
-
     // clear the display list
     while(numChildren > 0)
     {
@@ -49,18 +45,15 @@ class SentryAFrame extends flash.display.Sprite
 
     var aFrameMatrix : flash.geom.Matrix = templateAFrame.GetMatrix();
 
-    //trace("SentryAFrame::Init");
     var tempFrames = template.frames[templateAFrame.frameIndex];
 
     if (tempFrames == null)
     {
-      trace("tempFrames is null! " + templateAFrame.frameIndex + "/" + template.frames.length);
       return;
     }
 
     if (template.frames[templateAFrame.frameIndex].fModules == null)
     {
-      trace("TEMPLATE BLAH IS NULL!");
       return;
     }
 
@@ -69,8 +62,6 @@ class SentryAFrame extends flash.display.Sprite
       var fModuleMatrix : flash.geom.Matrix = fModule.GetMatrix();
 
       var module : SentryModule = new SentryModule(template.modules[fModule.moduleIndex]);
-
-      //trace("module index: " + fModule.moduleIndex);
 
       var moduleMatrix : flash.geom.Matrix = new flash.geom.Matrix();
 
@@ -141,8 +132,6 @@ class SentrySprite extends flash.display.Sprite
 
   public function new(tmpl : SentrySpriteTemplate)
   {
-    //trace("SentrySprite::new");
-
     super();
 
     this.template = tmpl;
@@ -190,12 +179,9 @@ class SentrySprite extends flash.display.Sprite
 
   private function SetCurrentAFrame(aFrameIndex : Int) : Int
   {
-    //trace("SetCurrentAFrame: " + aFrameIndex);
-
     // TODO: alias the template.anims[CurrentAnim] here or in setter for anim
     if (aFrameIndex < 0 || aFrameIndex >= template.anims[CurrentAnim].aFrames.length)
     {
-      //trace("invalid aframe!");
       return CurrentAFrame;
     }
 
@@ -273,8 +259,6 @@ class SentrySprite extends flash.display.Sprite
 
   public function setPause(v : Bool) : Bool
   {
-    //trace("SentrySprite::pause - not implemented!");
-
     pause = v;
 
     // TODO: set a timeStampPause, so that we keep the timing difference
@@ -388,8 +372,6 @@ class SentrySprite extends flash.display.Sprite
     
     for(i in 0...numChildren)
     {
-      //trace(getChildAt(i).getBounds(this));
-
       var childBounds = getChildAt(i).getBounds(this);
 
       if (childBounds.left < bounds.left)

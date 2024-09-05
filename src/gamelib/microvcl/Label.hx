@@ -17,8 +17,6 @@ class Label extends Control
       displayTactics.update();
     }
 
-    //trace(caption);
-
     return caption;
   }
 }

@@ -296,8 +296,6 @@ class SentrySpriteTemplate
 
     var moduleCount : Int = data.readInt();
 
-    //trace("modules count: " + moduleCount);
-
     for(moduleIndex in 0...moduleCount)
     {
       var module : SentryModuleTemplate = new SentryModuleTemplate();
@@ -314,8 +312,6 @@ class SentrySpriteTemplate
 
     var frameCount : Int = data.readInt();
 
-    //trace("frames count: " + frameCount);
-
     for(frameIndex in 0...frameCount)
     {
       var frame : SentryFrameTemplate = new SentryFrameTemplate();
@@ -331,8 +327,6 @@ class SentrySpriteTemplate
     anims   = new Array();
 
     var animCount : Int = data.readInt();
-
-    //trace("anims count: " + animCount);
 
     for(animIndex in 0...animCount)
     {

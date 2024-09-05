@@ -119,8 +119,6 @@ class Mochiad
 		};
 		options = Mochiad.parseOptions(options, DEFAULTS);
 
-    //trace(options);
-
 		var clip: Dynamic = options.clip;
 		var ad_msec: Float = 11000;
 		var ad_timeout: Float = options.ad_timeout;
@@ -130,8 +128,6 @@ class Mochiad
 
 		if(Mochiad.load(options) == null)
     {
-      trace("something is wrong");
-
 			options.ad_finished();
 			return;
 		}
@@ -296,7 +292,6 @@ class Mochiad
 		};
 		doOnEnterFrame(chk);
 
-    trace("showing the preloader ads!");
 	}
 
 	public static function load(options: Dynamic): MovieClip{
@@ -315,8 +310,6 @@ class Mochiad
 				no_page disables page detection.
 		*/
 
-    trace("load - options");
-
     try
     {
 
@@ -334,28 +327,19 @@ class Mochiad
 
 		var clip: Dynamic = options.clip;
 
-    trace("load...0 = " + Security.sandboxType);
-
 		if(!(Security.sandboxType != "localWithFile"))
     {
-      trace("done!");
 			return null;
 		}
 
-    trace("load...00");
-
     if (clip == null)
     {
-      trace("clip is null!");
-
       return null;
     }
 
 		if(clip._mochiad_loaded != null && clip._mochiad_loaded){
 			return null;
 		}
-
-    trace("load...1");
 
 		var depth: Float = options.depth;
 		options.depth = null;
@@ -364,15 +348,11 @@ class Mochiad
 		var wh: Array<Int> = Mochiad.getRes(options, clip);
 		options.res = wh[0] + "x" + wh[1];
 
-    trace("load...2 " + options.res);
-
 		options.server += options.id;
 		options.id = null;
 
 		clip._mochiad_loaded = true;
 		
-    trace("load...3");
-
 		// karg: seems that this code is filling in the swf url :)
     try
     {
@@ -387,8 +367,6 @@ class Mochiad
     {
       trace(e);
     }
-
-    trace("load...4..." + options.as3_swf);
 
 		var lv: Dynamic = new URLVariables();
 		for(k in Reflect.fields(options)){
@@ -435,7 +413,6 @@ class Mochiad
 
 		var f: Dynamic = function(ev: Dynamic)
     {
-      trace("f - loading failed callback");
 			mc._mochiad_ctr_failed = true;
 		}
 		loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, f);
@@ -449,7 +426,6 @@ class Mochiad
 		mc.addChild(loader);
 		mc._mochiad_ctr = loader;
 
-		trace("load is succesful!");
     return mc;
     }
     catch(e : Dynamic)
@@ -596,19 +572,13 @@ class Mochiad
 		var fadeout_time = options.fadeout_time;
 		Reflect.deleteField(options,"fadeout_time");
 
-    trace("...0!");
-
 		if(Mochiad.load(options)==null)
     {
-      trace("load failed!");
-
 			options.ad_finished();
 			return;
 		}
 
-    trace("...1!");
 		options.ad_started();
-    trace("ad_started!");
 
 		var mc = clip._mochiad;
 		Reflect.setField(mc,"onUnload", function(){
@@ -623,14 +593,10 @@ class Mochiad
 		mc.x = w * 0.5;
 		mc.y = h * 0.5;
 
-    trace("...2!");
-
 		var chk:Dynamic = createEmptyMovieClip(mc, "_mochiad_wait", 3);
 
     try
     {
-    trace("...3!");
-
 		chk.ad_msec = ad_msec;
 		chk.ad_timeout = ad_timeout;
 		chk.started = Lib.getTimer();

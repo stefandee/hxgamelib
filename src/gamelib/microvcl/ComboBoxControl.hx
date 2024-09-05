@@ -57,7 +57,6 @@ class ComboBoxControl extends Control
       }
       else
       {
-        trace("item pushed: " + item);
         items.push(item);
       }
 
@@ -157,12 +156,10 @@ class ComboBoxControl extends Control
     {
       if (items[i] == v)
       {
-        //trace("search item " + v + " found at " + i);
         return i;
       }
     }
 
-    //trace("search item " + v + " not found!");
     return -1;
   }
 }

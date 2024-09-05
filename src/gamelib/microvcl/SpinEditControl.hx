@@ -28,8 +28,6 @@ class SpinEditControl extends Control
     //var t : Float = 0.05;
     //var x : Float = 0.01;
 
-    //trace(value + "..." + v + "..." + increment + "..." + (0.05 + 0.01) + "..." + (t + x));
-
     if (oldValue != value)
     {
       if (onChangeEvent != null)

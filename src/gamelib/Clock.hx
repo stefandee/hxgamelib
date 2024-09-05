@@ -90,8 +90,6 @@ class Clock
     // update the elapsed real time
     elapsedRealTime = realTime - prevRealTime;
 
-    //trace(elapsedRealTime);
-
     if (paused)
     {
       pauseTime += timeDiff;
@@ -105,18 +103,12 @@ class Clock
       simTime = realTime + totalAdvanceTime - pauseTime;
 
       timer.update(simTime - oldSimTime);
-
-      //trace("real: " + realTime + " - " + "sim: " + simTime + " - " + "pause: " + pauseTime);
     }
     else
     {
-      //trace("pause time: " + MathUtils.clamp(timeDiff, 0, 100));
-      
       pauseTime += MathUtils.clamp(timeDiff, 0, 100);
     }
     */
-
-    //trace("real: " + realTime + " - " + "sim: " + simTime + " - " + "pause: " + pauseTime);
 
     // update the elapsed sim time
     var prevSimTime = simTime;
@@ -124,13 +116,6 @@ class Clock
     elapsedSimTime = simTime - prevSimTime;
 
     timer.update(elapsedSimTime);
-
-    /*
-    if (paused)
-    {
-      trace("elapsedSimTime = " + elapsedSimTime);
-    }
-    */
 
     // reset the advance time
     totalAdvanceTime += advanceTime;
