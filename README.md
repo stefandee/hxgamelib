@@ -1,11 +1,11 @@
 # Piron Games Haxe/Flash GameLib
 
-A game library written in Haxe 2, targeting Flash. Since Flash is dead, this is only released for historical purposes.
+It's a game library/framework written in Haxe 2, targeting Adobe Flash. Since Flash is dead, this is only released for historical purposes.
 
 Main features:
 * UI support via microvcl;
-* Sentry sprites loading and rendering;
-* localization (use StringTool provided in gametoolkit module with StringScript_AS30_ByteArray.csl export script to export data from a master sheet to a format usable by the library).
+* [Sentry](https://github.com/stefandee/gametoolkit) sprites loading and rendering;
+* localization (requires [StringTool](https://github.com/stefandee/gametoolkit) with [StringScript_AS30_ByteArray.csl](tools/StringTool/StringScript_AS30_ByteArray.csl) export script to convert data from a master sheet to a format usable by the library).
 
 The library was used between 2008-2010 to develop some of the early Adobe Flash games made by Piron Games, namely: [Born Of Fire TD](https://www.pirongames.com/born-of-fire-td/), [Orbital Decay](https://www.pirongames.com/orbital-decay/), [Ninjas!](https://www.pirongames.com/ninjas/), [That Word Game](https://www.pirongames.com/that-word-game/) and [Invisible Ink](https://www.pirongames.com/invisible-ink/)
 
